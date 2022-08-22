@@ -28,14 +28,15 @@ def loginPage(request):
         password = request.POST.get('password')
 
         try:
-            user = User.objects.get(email=email)
+
+            mail = User.objects.get(email=email)
         except:
             messages.error(request, 'User does not exist')
 
         user = authenticate(request, email=email, password=password)
 
-        if user is not None:
-            login(request, user)
+        if mail is not None:
+            login(request, mail)
             return redirect('home')
         else:
             messages.error(request, 'Username OR password does not exit')
