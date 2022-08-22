@@ -20,9 +20,7 @@ import dj_database_url
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
-
-IS_HEROKU ="DYNO" in os.environ
+IS_HEROKU = "DYNO" in os.environ
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
@@ -95,7 +93,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'djangoApp.wsgi.py'
 
-
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 MAX_CONN_AGE = 600
@@ -114,7 +111,6 @@ if "DATABASE_URL" in os.environ:
     # Enable test database if found in CI environment.
     if "CI" in os.environ:
         DATABASES["default"]["TEST"] = DATABASES["default"]
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -158,6 +154,8 @@ MEDIA_ROOT = BASE_DIR / 'static/images'
 
 # Enable WhiteNoise's GZip compression of static assets.
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
@@ -176,7 +174,6 @@ if "CI" in os.environ:
     TEST_RUNNER = "gettingstarted.settings.HerokuDiscoverRunner"
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
 
 CORS_ALLOW_ALL_ORIGINS = True
 django_heroku.settings(locals())
