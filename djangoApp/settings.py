@@ -9,6 +9,8 @@ https://docs.djangoproject.com/en/3.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
+import os
+
 from django.test.runner import DiscoverRunner
 import django_heroku
 from pathlib import Path
@@ -20,7 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 
-IS_HEROKU = "DYNO" in os.environ
+IS_HEROKU ="DYNO" in os.environ
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
